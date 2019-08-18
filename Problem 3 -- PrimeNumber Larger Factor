@@ -1,9 +1,11 @@
 THIS IS THE FIRST CODE WHEN I DIDN'T UNDERSTAND WHAT THE PRIME FACTORS OF A NUMBER ARE;
 THIS CODE SHOWS ALL THE PRIME NUMBERS THAT THE GIVEN NUMBER ( int num ) CAN BE DIVIDED BY.
 
-###The prime factors of 13195 are 5, 7, 13 and 29.
+###
+The prime factors of 13195 are 5, 7, 13 and 29.
 
-###What is the largest prime factor of the number 600851475143 ?
+What is the largest prime factor of the number 600851475143 ?
+###
 
 #include <stdio.h>
 #include <stdlib.h>
