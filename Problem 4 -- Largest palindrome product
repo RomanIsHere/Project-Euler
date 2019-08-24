@@ -12,8 +12,6 @@ int isPalindrome(int n);
 
 
 int main() {
-    int n = 102;
-    isPalindrome(n);
     int i,j;
     int product = 0;
     int maxPali = 0;
@@ -46,4 +44,29 @@ int isPalindrome(int n) {
 
 }
 
+Process returned 0 (0x0)   execution time : 0.025 s
+
+
+
+########################################
+
+int main() {
+    int n = 102;
+    isPalindrome(n);
+    int i,j;
+    int product = 0;
+    int maxPali = 0;
+    for (int i = 100; i < 1000; i++) {
+        for (int j = 100; j < 1000; j++) {
+            product = i * j;
+            if (product > maxPali && isPalindrome(product)) {
+                maxPali = product;
+            }
+        }
+    }
+    printf("%d", maxPali);
+
+    return 0;
+}
+906609
 Process returned 0 (0x0)   execution time : 0.025 s
