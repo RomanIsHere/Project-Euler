@@ -1,0 +1,34 @@
+// The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+
+// Find the sum of all the primes below two million.
+
+#include <stdio.h>
+#include <math.h>
+#define limit 2000000
+int main() {
+    long long number, sum, boundary;
+    int flag;
+    number = 0;
+    sum = 0;
+    flag = 0;
+
+    while (number < limit) {
+        flag = 0;
+
+        if (number == 1) flag = 1;
+        if (number % 2 == 0) flag = 1;
+        if (number == 2 || number == 3) flag = 0;
+
+        boundary = (int)floor(sqrt(number));
+
+        for (int i = 3; i <= boundary; i += 2){
+            if (number % i == 0) flag = 1;
+        }
+        if (flag == 0){
+            sum += number;
+        }
+        number++;
+    }
+    printf("%lld\n", sum);
+    return 0;
+}
