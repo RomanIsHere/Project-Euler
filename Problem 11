@@ -25,14 +25,15 @@ array = [\
 
 
 
-def horizontal(data):
+def horizontal(array):
   r = 0
   productH = 1
   lowBound = 0
   maxProductH = 1
   highBound = 4
+  limit = highBound - 1
   while r < 20:
-    while lowBound < len(array[r]) - highBound - 2:
+    while lowBound < len(array[r]) - limit:
       for i in range(0,4):
           
         productH = productH * int(array[r][i+lowBound])
@@ -47,15 +48,16 @@ def horizontal(data):
     r += 1
   print(maxProductH)
 
-def vertical(data):
+def vertical(array):
   c = 0
   productV = 1
   lowBound = 0
   maxProductV = 1
   highBound = 4
+  limit = highBound - 1
 
   while c < 20:
-    while lowBound < len(array[c]) - 3:
+    while lowBound < len(array[c]) - limit:
       for i in range(0,4):
         productV = productV * int(array[i+lowBound][c])
         #print(productV)
@@ -70,31 +72,40 @@ def vertical(data):
   print(maxProductV)
 
 
-def diagonaly(data):
-  d = 0
-  productD = 1
-  lowBound = 0
-  maxProductD = 1
-  highBound = 4
+def diagonaly_left(array):
+  limit = 4
+  maxProduct = 0
+  for row in range(0,len(array[0]) - limit):
+    for col in range(0,len(array[0]) - limit):
+      product = 1
+      for i in range(0,limit):
+        product *= array[row + i][col + i]
+        #print(product)
+      if product > maxProduct:
+        maxProduct = product
+      product = 1
+  print(maxProduct)
 
-  while d < 20:
-    while lowBound < len(array[d]):
-      for i in range(0,20):
-        productD = productD * int(array[d][i+lowBound])
-        print(productD)
-
-        if productD > maxProductD:
-          maxProductD = productD
-      
-      productD = 1
-      lowBound += 1
-      highBound += 1
-      d += 1
-  #print(maxProductD)
+def diagonaly_right(array):
+  limit = 4
+  maxProduct = 0
+  for row in range(0, 15):
+    for col in range(20,0,-1):
+      product = 1
+      for i in range(0,limit):
+        product *= array[row + i][col - i]
+        print(product)
+      if product > maxProduct:
+        maxProduct = product
+      product = 1
+  print(maxProduct)    
+  
 
 #horizontal(array)
 #vertical(array)
-diagonaly(array)
+#diagonaly_left(array)
+diagonaly_right(array)
+
 
 
 
